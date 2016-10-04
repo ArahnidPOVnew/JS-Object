@@ -1,11 +1,61 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="UTF-8">
     <title>JS3-4</title>
-    <script src="script.js"></script>
+   <script>
+var createDom = {
+
+createTitle:function(tagname, tagtext, tagclass) {
+	var x = document.createElement(tagmam);
+
+	x.innerHTML = tagtext;
+	x.className = tagclass;
+	document.body.appendChild(x);
+},
+createList: function(tagtext, tagclass) {
+	var list = document.createElement("ul");
+	list.className = tagclass;
+	for(var i=0; i<tagtext.lenght; i++) {
+		var listElement = document.createElement("li");
+		var listInput = document.createElement("input");
+		listInput.setAttribute("type", "checkbox");
+		listElement.innerHTML = "<span>" + tagtext[i] + "</span>";
+		listElement.insertBefore(listInput, listElement.children[0]);
+		list.appendChild(listElement);
+	}
+document.body.appendChild(list);
+
+}
+}
+var titleText = "Заголовок";
+var listText = ["Елемент списка1", "Елемент списка1", "Елемент списка1", "Елемент списка1",];
+
+createDom.createTitle("h2", titleText, "main__title");
+
+createDom.createList(titleText, "list");
+</script>
 </head>
 <body>
 
 </body>
 </html>
+
+<input type="button" onclick="add_input();" value="Добавить элемент">
+<form>
+<div id="inputi"><input name="my_input"></div>
+</form>
+<script>
+var p = document.getElementById("inputi") ;
+var length = 1 ;
+function add_input() {
+ var new_input = document.createElement("input") ;
+ new_input.name = "my_input" ;
+ var div = document.createElement('div') ;
+ div.innerHTML = '<br>div элемент №' + length + '<br>' ;
+ div.appendChild(new_input) ;
+ p.appendChild(div) ;
+ length++ ;
+} ;
+</script>
+
